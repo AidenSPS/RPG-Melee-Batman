@@ -12,3 +12,7 @@ What we need is to have the "Fight Him" option run the round(); function and bui
 5/23/22 CONDITIONAL{
 	Conditional that states if it is the players turn, then go to the option, if it is the NPC's turn, then display the new story after a few seconds, OR use a "Ok" button to advance dialogue, otherwise, a new event will happen to determine initiative
 }
+
+5/24/22{
+	Need to learn Modal Boxes to display the fightImages, have a random number generator to randomly select the fight word. (Import Database? Through downloads? Add images to files in github?);
+}

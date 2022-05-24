@@ -25,20 +25,23 @@ function roller(dice,numDice){
 
 function round(){
   let roll = roller(6,1);
-  story("You rolled a "+roll);
+  console.log("You rolled a "+roll);
   let turn = "player";
   switch(true){
     case (roll < 4):
       turn = 0;
+      console.log = ("Player Turn");
       playerInit();
       break;
     case (roll > 3 && roll < 6):
       turn = 1;
+      console.log("NPC Initiative");
       npcInit();
       //playerTurn();
       break;
     default:
       turn = 2;
+      console.log("Critical");
       critical();
       //nim();
       break;  
@@ -49,15 +52,15 @@ function round(){
 
 
 /* function userCalculation
-@params none
-@return damage
-This function takes stats into consideration and calculates damage and applies it to the NPC opponent*/
+  @params none
+  @return damage
+  This function takes stats into consideration and calculates damage and applies it to the NPC opponent*/
 function userCalculation(){
   if(strength >= 14){
     fistDamage = fistDamage + 2;
   }
   if(constitution >= 4){
-    punches = punches + 2
+    punches = punches + 2;
   }
   else if(constitution >= 8){
     punches = punches + 3;
@@ -88,11 +91,5 @@ function critical(){
 function playerTurn(){
   story("It is your turn, what would you like to do?");
   choices = moves;
-  answer = setOptions(choices);
-}
-
-function nim(){
-  story("You won Nim");
-  choices = ["Great"];
   answer = setOptions(choices);
 }
