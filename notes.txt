@@ -14,5 +14,5 @@ What we need is to have the "Fight Him" option run the round(); function and bui
 }
 
 5/24/22{
-	Need to learn Modal Boxes to display the fightImages, have a random number generator to randomly select the fight word. (Import Database? Through downloads? Add images to files in github?);
+	Need to learn Modal Boxes to display the fightImages, have a random number generator to randomly select the fight word. Add a 3 second delay timer as well(touch with Mr.M about timers). (Import Database? Through downloads? Add images to files in github?);
 }
