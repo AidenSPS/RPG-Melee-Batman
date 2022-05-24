@@ -13,6 +13,20 @@ What we need is to have the "Fight Him" option run the round(); function and bui
 	Conditional that states if it is the players turn, then go to the option, if it is the NPC's turn, then display the new story after a few seconds, OR use a "Ok" button to advance dialogue, otherwise, a new event will happen to determine initiative
 }
 
-5/24/22{
-	Need to learn Modal Boxes to display the fightImages, have a random number generator to randomly select the fight word. Add a 3 second delay timer as well(touch with Mr.M about timers). (Import Database? Through downloads? Add images to files in github?);
+5/24/22{ NOTES FOR THE FUNCTIONS [move();,moveAttack();,attack();,special();,runAway();];
+	[-1]: Are we going to organize turns and say how long it took you to defeat the "npc[0][0]"?
+
+	[0]: Need to learn Modal Boxes to display the fightImages, have a random number generator to randomly select the fight word. Add a 3 second delay timer as well(touch with Mr.M about timers). (Import Database? Through downloads? Add images to files in github?);
+
+	[1]: What are we thinking about the move(); function, is this going to be based on the dexterity stat?, is this going to be a move regardless? Is the dexterity stat going to give you a percent chance of sucessfully moving away? 
+
+	[2]: How would the dexterity stat impact the moveAttack() function? Does Strength and Dexterity have an impact on this function?
+
+	[3]: Are we going to have an inventory system that takes the amount of each item and implements that into the "choices" array? ie choices = ["Batarang ("+inventory[0][1]+") remaining"] // In English "Batarang: (3 remaining)";
+
+	[4]: Need to have an understanding as to what the special attack is for Batman, does he ram the batmobile into someone?, does he sneak up behind the NPC and take him out?, store the specials in an array and randomize the specials from there, sepcial dependencies? what ARE we thinking?
+
+	[5]: What is going to happen when the Batman runs away? does the game end? does it continue and there are consequences? 
+
+	[6]: NOTE ALL OF WHAT I AM STUBBING IN IS SUBJECT TO CHANGE
 }

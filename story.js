@@ -15,6 +15,7 @@ var classes = [["Christian Bale",["Batman Begins", "The Dark Night"],"One Punch 
 var choices = [];
 var maxRolls = 3; // how many rerolls? Default = 3
 var rollCount = 0; // which reroll are we on?
+var inventory = [["Batarang",3],["First-Aid Kit",5]]; //Stub array for now, but I made it so that it would take the gadget from the "attack" choices to show "Batarang: (inventory[0][1] Remaining)"
 
 function checkAnswers(answer) {
   switch(answer) {
@@ -57,11 +58,29 @@ function checkAnswers(answer) {
     case "Confront Him":
       round();
       break;
+    case "Move":
+      move();
+      break;
+    case "Move + Attack":
+      moveAttack();
+      break;
+    case "Attack":
+      attack();
+      break;
+    case "Special":
+      special();
+      break;
+    case "Run Away":
+      runAway();
+      break;
     case "Wait and then Attack":
       wait();
       break;
     case "Ask Robin":
       robinJoker();
+      break;
+    case "Use First-Aid Kit "+inventory[1][1]+" Remaining":
+      heal();
       break;
     }
 }
@@ -216,4 +235,58 @@ function wait(){
 
 function robinJoker(){
   alert("Robin: Hey Batman, I would wait and see what the Joker is up to, then we can fight him.")
+}
+
+function playerInit(){
+  story("You got the Initiative, what would you like to do");
+  choices = moves;
+  answer = setOptions(choices);
+}
+
+function npcInit(){
+  story(npcs[0][0] + " attacks with a " + npcs[0][2] + " and does "+ roller(npcs[0][3],1) + " damage");
+  choices = ["Ouch"];
+  answer = setOptions(choices)
+}
+
+function critical(){
+  story("You and "+npcs[0][0]+" clash as if both of you expected an attack, You have to play a game of nim to settle this.");
+  choices = ["Lets Settle This"];
+  answer = setOptions(choices);
+}
+
+function playerTurn(){
+  story("It is your turn, what would you like to do?");
+  choices = moves;
+  answer = setOptions(choices);
+}
+
+function move(){ // find in 5/24[1]
+  story("You moved to a new spot");
+  choices = ["Ok"];
+  answer = setOptions(choices);
+}
+
+function moveAttack(){//Find in 5/24[2]
+  story("You punched "+npcs[0][0]+" and did "+roller(npcs[0][3],1)+ " damage. Then you moved out of the way");
+  choices = ["Ok"];
+  answer = setOptions(choices);
+}
+
+function attack(){//Find in 5/24[3]
+  story("What would you like to attack with?");
+  choices = ["Batarang: ("+inventory[0][1]+" Remaining)","Smoke Pellets","Impact Mines","Sticky Glue Balls","First-Aid Kit"];
+  answer = setOptions(choices);
+}
+
+function special(){ //Find in 5/24[4]
+  story("You rammed the batmobile through "+npcs[0][0]+" and did CRITICAL damage.");
+}
+
+function runAway(){
+  story("You decided that it you weren't ready to fight "+npcs[0][0]+" and chickened out");
+}
+
+function heal(){
+  story("You used a First-Aid Kit and healed "+roller(npcs[0][1]));
 }
