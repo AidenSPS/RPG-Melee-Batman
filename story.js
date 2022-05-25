@@ -15,7 +15,7 @@ var classes = [["Christian Bale",["Batman Begins", "The Dark Night"],"One Punch 
 var choices = [];
 var maxRolls = 3; // how many rerolls? Default = 3
 var rollCount = 0; // which reroll are we on?
-var inventory = [["Batarang",3],["First-Aid Kit",5]]; //Stub array for now, but I made it so that it would take the gadget from the "attack" choices to show "Batarang: (inventory[0][1] Remaining)"
+var inventory = [[["Batarang",3],["First-Aid Kit",5],["Smoke Pellets",2],["Impact Mines",3],["Sticky Glue Balls",2]],["Gold",50]]; //Stub array for now, but I made it so that it would take the gadget from the "attack" choices to show "Batarang: (inventory[0][1] Remaining)"
 
 function checkAnswers(answer) {
   switch(answer) {
@@ -79,7 +79,7 @@ function checkAnswers(answer) {
     case "Ask Robin":
       robinJoker();
       break;
-    case "Use First-Aid Kit "+inventory[1][1]+" Remaining":
+    case "Use First-Aid Kit: ("+inventory[0][1][1]+" Remaining)":
       heal();
       break;
     }
@@ -275,7 +275,7 @@ function moveAttack(){//Find in 5/24[2]
 
 function attack(){//Find in 5/24[3]
   story("What would you like to attack with?");
-  choices = ["Batarang: ("+inventory[0][1]+" Remaining)","Smoke Pellets","Impact Mines","Sticky Glue Balls","First-Aid Kit"];
+  choices = ["Batarang: ("+inventory[0][0][1]+" Remaining)","Smoke Pellets: ("+inventory[0][2][1]+" Remaining)","Impact Mines: ("+inventory[0][3][1]+" Remaining)","Sticky Glue Balls: ("+inventory[0][4][1]+" Remaining)","First-Aid Kit: ("+inventory[0][1][1]+" Remaining)"];
   answer = setOptions(choices);
 }
 
@@ -288,5 +288,5 @@ function runAway(){
 }
 
 function heal(){
-  story("You used a First-Aid Kit and healed "+roller(npcs[0][1]));
+  story("You used a First-Aid Kit and healed "+(Math.floor(Math.random()*6)+1)+" hit points.");
 }
