@@ -82,6 +82,15 @@ function checkAnswers(answer) {
     case "Use First-Aid Kit: ("+inventory[0][1][1]+" Remaining)":
       heal();
       break;
+    case "Ok":
+      enemyTurn();
+      break;
+    case "Continue":
+      playerTurn();
+      break;
+    case "Ouch":
+      playerTurn();
+      break;
     }
 }
 
@@ -281,6 +290,8 @@ function attack(){//Find in 5/24[3]
 
 function special(){ //Find in 5/24[4]
   story("You rammed the batmobile through "+npcs[0][0]+" and did CRITICAL damage.");
+  choices = ["Ok"];
+  answer = setOptions(choices);
 }
 
 function runAway(){
@@ -289,4 +300,27 @@ function runAway(){
 
 function heal(){
   story("You used a First-Aid Kit and healed "+(Math.floor(Math.random()*6)+1)+" hit points.");
+  choices = ["Ok"];
+  answer = setOptions(choices);
+}
+
+function enemyTurn(){
+  let attackType = Math.floor(Math.random()*20+1);
+  if (attackType < 7) {
+    story(npcs[0][0]+" punched. You take "+Math.floor(Math.random()*3+4)+" damage.");
+  }
+  else if (attackType > 6 && attackType < 11) {
+    story(npcs[0][0]+" shot his gun. You take "+Math.floor(Math.random()*4+5)+" damage.");
+  }
+  else if (attackType > 9 && attackType < 15) {
+    story(npcs[0][0]+" used his tazer. You take "+Math.floor(Math.random()*2+7)+" damage.");
+  }
+  else if (attackType > 14 && attackType < 18) {
+    story(npcs[0][0]+" threw laughing gas. You take put on a gas mask and take no effect.");
+  }
+  else {
+    story(npcs[0][0]+" tried to run. You chase him down, and the fight continues.");
+  }
+  choices = ["Continue"];
+  setOptions(choices);
 }
