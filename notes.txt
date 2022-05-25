@@ -30,3 +30,18 @@ What we need is to have the "Fight Him" option run the round(); function and bui
 
 	[6]: NOTE ALL OF WHAT I AM STUBBING IN IS SUBJECT TO CHANGE
 }
+
+5/25/22{ Notes to finish move()
+	an array determines the sides of the die/dice (6d,12d,20d) (For loop to populate it?)
+
+	need to roll for base damage, and need to roll for damage modification {
+	    if your moving, have high dexterity, or you are attempting to run away, then subtract a certain value from the damage roll and determine how much damage NPC does to the player. 
+	}
+
+	example{ for a 6d
+	   0-1 miss
+	   2-3 minimal damage
+	   4-5 damage
+	   6 CRITICAL damage
+	}
+}
