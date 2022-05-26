@@ -16,3 +16,7 @@ What we need is to have the "Fight Him" option run the round(); function and bui
 		Make Characters and Melee Folders, put style.css and webhelper.js OUTSIDE of the folders. 
 	}
 }
+
+5/26/22{
+	use tilde's on choices to implement non-working choice options.
+}
